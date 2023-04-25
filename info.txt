@@ -1,2 +1,4 @@
 Project ini masih on-going,
 dikerjakan oleh : aftar,ansa,garret.
+
+25/04/2023 : Front End Selesai
