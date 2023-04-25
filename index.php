@@ -45,7 +45,7 @@
                         tanpa mengalami kesulitan. Selain itu, website ini juga dilengkapi dengan fitur sederhana
                         seperti filter output yang ada di halaman setting.
                     </p>
-                    <a href="input.php">Mulai Uji Coba!</a>
+                    <a href="input.php">Mulai Input Data Sekarang!</a>
                 </div>
 
                 <div class="cover-utama">
