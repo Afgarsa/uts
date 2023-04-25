@@ -27,7 +27,7 @@
                         <a href="result.php">Display</a>
                     </li>
                 </ul>
-                    <img class="logo-btn" src="images/Logo.png" alt="" />
+                    <img class="logo-btn" src="images/Logo.png" alt="Logo Button" />
             </nav>
         </div>
     </div>
