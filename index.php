@@ -45,7 +45,7 @@
                         tanpa mengalami kesulitan. Selain itu, website ini juga dilengkapi dengan fitur sederhana
                         seperti filter output yang ada di halaman setting.
                     </p>
-                    <a href="input.php">Mulai simpan daataa!</a>
+                    <a href="input.php">Mulai simpan data!</a>
                 </div>
 
                 <div class="cover-utama">
