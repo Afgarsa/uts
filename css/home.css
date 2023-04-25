@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+@font-face {
+    font-family: 'Lora';
+    src: url(fonts/Lora-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Martel';
+    src: url(fonts/Martel-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Exo';
+    src: url(fonts/Exo-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(fonts/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(fonts/Poppins-Regular.ttf);
+}
+
+body {
+    font-family:"Roboto", sans-serif;
+    background-color: #EAD9CE;
+    overflow-x:  hidden;
+
+}
+
+/* Navbar */
+.nav-container {
+
+    background: #EAD9CE;
+    box-shadow: 0px 9px 4px 1px rgba(0, 0, 0, 0.25);
+    height: 86px;
+}
+
+.wrapper{
+    max-width: 1200px;
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 82px;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav .logo-btn{
+    margin-left: 1100px;
+    margin-top: -50px;
+}
+
+.nav-items li {
+    list-style: none;
+    margin-right: 50px;
+    margin-top: 35px;
+}
+
+.nav-items li:nth-last-of-type(4){
+    margin-left: -10px;
+}
+
+.nav-items li a{
+    font-family: 'Lora', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    text-decoration: none;
+
+    color: #000000;
+}
+
+/* Header */
+
+.header-cointainer {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    height: 100hv;
+    display: flex;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.utama{
+    width: 490px;
+    height: 385px;
+    left: 180px;
+    top: 150px;
+}
+
+.utama h1{
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 60px;
+    width: 441px;
+    height: 120px;
+    margin-left: 15px;
+
+    color: #1B1B1B;
+}
+
+.utama p{
+    font-family: 'Martel';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: justify;
+    
+    width: 490px;
+    height: 162px;
+    margin-left: 15px;
+
+
+    color: #1B1B1B;
+
+    margin-bottom: 32px;
+}
+
+header a {
+    font-family: 'Martel';
+    color: #EAD9CE;
+    font-size: 17px;
+    text-decoration: none;
+    font-weight: bold;
+
+    background: #B07B54;
+    border-radius: 0px 30px 30px 0px;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+    padding: 12px 48px;
+    margin-left: 15px;
+
+
+}
+
+.cover-utama{
+    margin-left: 120px;
+}
+
+/* Team Name */
+.team-name {
+    margin-top: -75px;
+    margin-left: 15px;
+
+}
+
+.ourtim p{
+    font-family: 'Inter';
+    color: #604E14;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    width: 65px;
+    height: 21px;
+    margin-left: 25px;
+}
+
+.minivec {
+width: 10px;
+height: 2px;
+}
+
+.honor-team h1{
+    font-family: 'Inter';
+    font-weight: bold;
+}
+
+.honor-team b{
+    color:  #6E3811;
+}
+
+.member-team{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 0px;
+    margin-top: 33px;
+}
+
+.garret-photos{
+    margin-left: 270px;
+}
+
+.aftar-photos{
+margin-left: 270px;
+}
+
+.info-teams h1{
+
+    display: flex;
+    margin-top: 27px;
+    font-family: 'Poppins';
+    font-size: 23px;
+    line-height: 96.5%;
+    /* or 22px */
+    
+    text-transform: uppercase;
+    color: black;
+}
+
+
+.info-teams p{
+    font-family: 'Poppins';
+    color: #6E3811;
+    font-weight: bolder;
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+.info-ansa h1{
+    margin-top: 18px;
+    margin-left: 15px;
+}
+
+.info-aftar h1{
+    margin-top : -55px;
+    margin-left : 450px;
+}
+
+.info-aftar p{
+    margin-left: 500px;
+}
+
+.info-garret h1{
+    margin-top : -55px;
+    margin-left : 905px;
+}
+
+.info-garret p{
+    margin-left: 960px;
+}

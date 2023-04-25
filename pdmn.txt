@@ -1,0 +1,71 @@
+1. Halaman Index : 
+- Nama Project
+- Nama Anggota Kelompok
+- Button menuju ke : 
+a.) Setting.php (cookies)
+b.) Input.php (form)
+c.) Display.php (output/result)
+
+2. Halaman setting (cookies) : 
+- Ada 2 hal yang perlu disetting untuk keperluan halaman input.php:
+a. Alamat Mahasiswa apakah wajib diisi: user akan mengisinya melalui radio button, Ya atau Tidak
+b. IPK Mahasiswa nilai defaultnya berapa: user akan mengisinya melalui textbox
+
+- Ada 4 hal yang perlu disetting untuk keperluan halaman display.php:
+a. Ukuran font : user akan mengisikan angka berapa pixel (tanpa “px”) melalui
+textbox
+b. Tampilan font: user akan memilih melalui combobox: bold, italic atau underline
+c. Alamat Mahasiswa apakah akan ditampilkan: user akan mengisinya melalui radio
+button, Ya atau Tidak
+d. IPK Mahasiswa apakah akan ditampilkan: user akan mengisinya melalui radio
+button, Ya atau Tidak
+
+- Jika user sudah mengisi ke-6 isian di atas, user dapat klik tombol Simpan dan isian user
+akan tersimpan di Cookie
+
+- Jika halaman setting.php ini dibuka kembali oleh user, tentu saja seluruh textbox atau
+radio button atau combobox ini tidak dalam keadaan kosong, tetapi sesuai dengan
+default yang didapat dari Cookie. Perhatikan comboboxnya! Harus menampilkan option
+sesuai kondisi di dalam cookie.
+
+
+3. Halaman Input
+*Disimpan ke dalam session 
+
+- Berisikan form untuk mengisikan data berikut:
+a. NRP mahasiswa: textbox, mandatory, nilai default kosong
+b. Nama mahasiswa: textbox, mandatory, nilai default kosong
+c. Alamat mahasiswa: textarea, mandatory atau optional bergantung dari setting
+Cookie yang ada (lihat petunjuk bagian Setting nomor 1.a.)
+d. IPK mahasiswa: textbox, mandatory, nilai default berganting dari setting Cookie
+yang ada (lihat petunjuk bagian Setting nomor 1.b.)
+
+- Jika sudah diisikan ke-4 data di atas, user bisa klik tombol simpan dan data mahasiswa
+akan tersimpan di dalam SESSION
+
+- Jika ternyata Cookie belum terbentuk, maka sebelum ditampilkan halaman input.php,
+sistem akan langsung melempar user ke halaman setting.php
+
+4. Halaman Display 
+
+Pada halaman ini, akan ditampilkan seluruh isi Session yang berisikan data mahasiswa
+-  Menampilkan seluruh data mahasiswa secara menurun seperti ini:
+1.
+NRP : 160420001
+Nama : Bejo
+Alamat : Surabaya
+IPK : 3.95
+
+2.
+NRP : 160820001
+Nama : Selamet
+Alamat : Malang
+IPK : 3.80
+
+- Ukuran font dan tampilan font mengikuti setting di dalam Cookie
+- Alamat atau IPK apakah akan ditampilkan di sini atau tidak mengikuti setting di dalam
+Cookie
+
+
+
+===========
