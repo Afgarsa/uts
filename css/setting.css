@@ -2,10 +2,6 @@
     box-sizing: border-box;
     margin: 0;
   }
-
-html, body {
-    height: 140%;
-  }
   
 @font-face {
     font-family: 'Lora';
@@ -104,6 +100,12 @@ header{
     justify-content: space-between;
 }
 
+.content {
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 52px;
+}
+
 .Judul h1{
     width: 574px;
     height: 60px;
@@ -168,8 +170,8 @@ header{
 }
 
 
-input-set .list-input{
-    margin-top: 25px;
+.list-input{
+    margin-top: 28px;
     margin-left: 410px;
 }
 
@@ -186,11 +188,7 @@ label {
     color: #5B3011;
 }
 
-input-set .pertanyaan1{
-    margin-top: 28px;
-}
-
-input[type=text]{
+input[type=text], input[type=number]{
     width: 115px;
     border: 1px solid #000000;
     padding: 9px 8px;
@@ -264,7 +262,7 @@ select{
 
 }
 
-input[type=submit]{
+button[type=submit]{
     width: 233px;
     height: 49px;
     margin-top: 10px;
@@ -282,8 +280,11 @@ input[type=submit]{
     color: #EAD9CE;
 }
 
+button[type=submit]:hover {
+    background: #468130;
+}
 
-input[type=reset]{
+button[type=reset]{
     width: 233px;
     height: 49px;
 
@@ -301,4 +302,87 @@ input[type=reset]{
     
 
     color: #EAD9CE;
+}
+
+button[type=reset]:hover {
+    background: #a33d04;
+}
+
+button[type=submit], button[type=reset] {
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 300px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 25%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    overflow:hidden;
+    padding-bottom:55px;
+    background-color:white;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+
+    text-align:center;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: #06D85F;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+    text-align:center;
+}
+.popup .footer{
+    background-color:#B07B54;
+    width:100%;
+    padding: 8px 0;
+    position: absolute;
+    left:0;
+    bottom:0;
+    text-align:center;
+
+}
+.popup .footer a
+{
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #FFFFFF;
 }

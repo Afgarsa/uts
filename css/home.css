@@ -45,10 +45,10 @@ body {
 
 .wrapper{
     max-width: 1200px;
-    margin: 0;
+    margin: auto auto;
 }
 
-.nav {
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,14 +60,16 @@ nav ul{
 }
 
 nav .logo-btn{
-    margin-left: 1100px;
-    margin-top: -50px;
+    margin-top: 25px;
 }
 
 .nav-items li {
     list-style: none;
-    margin-right: 50px;
-    margin-top: 35px;
+    transition: opacity .2s ease-in-out;
+}
+
+.nav-items li:hover {
+    opacity: .75;
 }
 
 .nav-items li:nth-last-of-type(4){
@@ -81,6 +83,8 @@ nav .logo-btn{
     font-size: 15px;
     line-height: 19px;
     text-decoration: none;
+    padding: 35px 40px;
+    display: block;
 
     color: #000000;
 }
@@ -91,7 +95,10 @@ nav .logo-btn{
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
-    height: 100hv;
+    min-height: 800px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
 }
@@ -140,7 +147,11 @@ header{
     margin-bottom: 32px;
 }
 
-header a {
+.cover-utama{
+    margin-left: 120px;
+}
+
+.btn-primary {
     font-family: 'Martel';
     color: #EAD9CE;
     font-size: 17px;
@@ -152,12 +163,33 @@ header a {
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
     padding: 12px 48px;
     margin-left: 15px;
-
-
+    transition: all .5s ease;
 }
 
-.cover-utama{
-    margin-left: 120px;
+.btn-arrow {
+    position: relative;
+}
+
+.btn-primary.btn-arrow:hover {
+    padding-right: 62px;
+}
+
+.btn-arrow:after {
+    content: ">";
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s ease;
+    z-index: 20;
+}
+
+.btn-arrow:hover:after {
+    right: 20px;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Team Name */
@@ -195,21 +227,15 @@ height: 2px;
 
 .member-team{
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
     margin-left: 0px;
     margin-top: 33px;
+    margin-bottom: 100px;
 }
 
-.garret-photos{
-    margin-left: 270px;
-}
-
-.aftar-photos{
-margin-left: 270px;
-}
-
-.info-teams h1{
+.member-team .info h1{
 
     display: flex;
     margin-top: 27px;
@@ -222,8 +248,7 @@ margin-left: 270px;
     color: black;
 }
 
-
-.info-teams p{
+.member-team .info p{
     font-family: 'Poppins';
     color: #6E3811;
     font-weight: bolder;
@@ -231,25 +256,23 @@ margin-left: 270px;
     margin-top: 5px;
 }
 
-.info-ansa h1{
-    margin-top: 18px;
-    margin-left: 15px;
+.member-team div {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
-.info-aftar h1{
-    margin-top : -55px;
-    margin-left : 450px;
+.member-team div:nth-child(2) {
+    animation-delay: .5s;
 }
 
-.info-aftar p{
-    margin-left: 500px;
+.member-team div:nth-child(3) {
+    animation-delay: 1s;
 }
 
-.info-garret h1{
-    margin-top : -55px;
-    margin-left : 905px;
-}
-
-.info-garret p{
-    margin-left: 960px;
+@keyframes floating {
+    0% { transform: translate(0, 0px); }
+    50% { transform: translate(0, 15px); }
+    100% { transform: translate(0, -0px); }
 }

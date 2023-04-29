@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Ambil cookies form display
+$print_address = isset($_COOKIE['print_address']) ? $_COOKIE['print_address'] : 'off';
+$print_gpk = isset($_COOKIE['print_gpk']) ? $_COOKIE['print_gpk'] : 'off';
+$font_size = isset($_COOKIE['font_size']) ? $_COOKIE['font_size'] : '16';
+$wrap_format = isset($_COOKIE['wrap_format']) ? $_COOKIE['wrap_format'] : 'normal';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,12 +49,44 @@
     </div>
 
     <div class="hasil-input">
-	<p>1. <br>NRP: 160421080 <br> Nama: Bejo <br> Alamat: Surabaya <br> ipk : 3.95    </p>
-
-	<p>2. <br>NRP: 160421081 <br> Nama: Slamet <br> Alamat: Surabaya <br> ipk : 3.85    </p>
-
+        <!-- Student data display -->
+        <?php if (isset($_SESSION['student_datas'])): ?>
+            <?php foreach ($_SESSION['student_datas'] as $student_data): ?>
+                <?php
+                   $wrap_style = "";
+                   switch ($wrap_format) {
+                       case "normal":
+                            $wrap_style = "";
+                       break;
+                       case "bold":
+                           $wrap_style = "font-weight: 700";
+                       break;
+                       case "italic":
+                           $wrap_style = "font-style: italic;";
+                       break;
+                       case "underline":
+                           $wrap_style = "text-decoration: underline";
+                       break;
+                   }
+                ?>
+                <div class="box" style="font-size: <?php echo $font_size ?>px; <?php echo $wrap_style ?>">
+                    <div class="identitas">
+                        <strong>Nama:</strong><?php echo $student_data['name']; ?>&nbsp;<span>(<?php echo $student_data['nrp']; ?>)</span>
+                    </div>
+                    <?php if ($print_address === 'on'):  ?>
+                        <div class="alamat">
+                            <strong>Alamat:</strong><br>
+                            <?php echo $student_data['address'] ?>
+                        </div>
+                    <?php endif ?>
+                    <?php if ($print_gpk === 'on'): ?>
+                    <div class="ipk">
+                        <strong>IPK:</strong> <?php echo $student_data['gpk'] ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
    </div>
-
 </body>
-
 </html>

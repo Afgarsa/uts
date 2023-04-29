@@ -1,28 +1,42 @@
 <?php
-// set cookies
-if(isset($_POST['submit'])) {
-    setcookie("alamat", $_POST['alamat'], time()+3600); // cookies akan kadaluarsa dalam satu jam
-    setcookie("ukuran", $_POST['ukuran'], time()+3600);
-}
-
-// set sessions
 session_start();
-if(isset($_POST['submit'])) {
-    $_SESSION['nrp'] = $_POST['nrp'];
-    $_SESSION['nama'] = $_POST['nama'];
-    $_SESSION['alamat'] = $_POST['alamat'];
-    $_SESSION['IPK'] = $_POST['IPK'];
 
-// jika alamat di setting di uncheck
-    if(isset($_COOKIE['alamat']) && $_COOKIE['alamat'] == 0) {
-        $_SESSION['alamat'] = "";
+// Cek apakah form telah disimpan
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Ambil value form
+    $nrp = $_POST['nrp'];
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $gpk = $_POST['gpk'];
+
+    // Buat array student baru
+    $student_data = array(
+        'nrp' => $nrp,
+        'name' => $name,
+        'address' => $address,
+        'gpk' => $gpk
+    );
+
+    // Cek apakah session student_data sudah ada
+    if (!isset($_SESSION['student_datas'])) {
+        // Jika tidak, buat session baru
+        $_SESSION['student_datas'] = array($student_data);
     } else {
-        $_SESSION['alamat'] = $_POST['alamat'];
+        // Jika iya, append data student yang baru kedalam session
+        array_push($_SESSION['student_datas'], $student_data);
     }
-    header("Location: result.php"); // redirect ke halaman display.php
-    exit;
-// masih bug
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Refresh the page
+    header('location:#popup');
+}
+?>
+
+<?php
+// Ambil cookies form input
+$address_required = isset($_COOKIE['address_required']) ? $_COOKIE['address_required'] : 'off';
+$default_gpk = isset($_COOKIE['default_gpk']) ? $_COOKIE['default_gpk'] : '';
 ?>
 
 
@@ -36,6 +50,17 @@ if(isset($_POST['submit'])) {
     <title>Input</title>
 </head>
 <body>
+    <div id="popup" class="overlay">
+        <div class="popup">
+            <h2>Berhasil Simpan Mahasiswa!</h2>
+            <div class="content">
+                Data mahasiswa telah tersimpan! Data dapat dilihat di halaman display.
+            </div>
+            <div class="footer">
+                <a href="#">Kembali</a>
+            </div>
+        </div>
+    </div>
     <div class="nav-container">
         <div class="wrapper">
             <nav>
@@ -58,49 +83,62 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 
-    
-    <div class="Judul">
-        <h1>Let's Input</h1>
+    <div class="content">
+        <div class="Judul">
+            <h1>Let's Input</h1>
+        </div>
+        <input-set>
+            <div class="list-input">
+                <form action="#popup" method="post">
+                    <div class="pertanyaan1">
+                        <label for="nrp" class="required">1. NRP Mahasiswa</label>
+                        <br>
+                        <input type="text" id="nrp" name="nrp" placeholder="Tulis NRP Mahasiswa Disini" required>
+                    </div>
+
+                    <div class="pertanyaan2">
+                        <br>
+                        <label for="name" class="required">2. Nama Mahasiswa</label>
+                        <br>
+                        <input type="text" id="name" name="name" placeholder="Tulis Nama Mahasiswa Disini" required>
+                    </div>
+
+                    <div class="pertanyaan3">
+                        <br>
+                        <label for="address" class="<?php if ($address_required === 'on') { echo 'required'; } ?>">3. Alamat Mahasiswa</label>
+                        <br>
+                        <textarea
+                                type="text"
+                                id="address"
+                                name="address"
+                                placeholder="Tulis Alamat Mahasiswa Disini"
+                            <?php if ($address_required === 'on') { echo 'required'; } ?>
+                        ></textarea>
+                    </div>
+
+                    <div class="pertanyaan4">
+                        <br>
+                        <label for="gpk" class="required">4. IPK Mahasiswa</label>
+                        <br>
+                        <input
+                                type="number"
+                                min="0" max="4"
+                                step="0.01"
+                                id="gpk"
+                                name="gpk"
+                                placeholder="IPK Mahasiswa (0-4)"
+                                value="<?php echo $default_gpk; ?>"
+                                required
+                        >
+                    </div>
+
+                    <br>
+                    <button type="reset">Reset</button>
+                    <button type="submit">Simpan</button>
+
+                </form>
+            </div>
+        </input-set>
     </div>
-
-
-    <input-set>
-    <div class="list-input">
-        <form action="/input.php">
-            <div class="pertanyaan1">
-                <label for="NRP-Mahasiswa">1. NRP Mahasiswa</label>
-                <br>
-                <input type="text" id="NRP-Mahasiswa" name="NRP-Mahasiswa" placeholder="Tulis NRP Mahasiswa Disini">
-            </div>
-
-            <div class="pertanyaan2">
-                <br>
-                <label for="Nama-Mahasiswa">2. Nama Mahasiswa</label>
-                <br>
-                <input type="text" id="Nama-Mahasiswa" name="Nama-Mahasiswa" placeholder="Tulis Nama Mahasiswa Disini">
-            </div>
-
-            <div class="pertanyaan3">
-                <br>
-                <label for="Alamat-Mahasiswa">3. Alamat Mahasiswa</label>
-                <br>
-                <input type="textArea" id="Alamat-Mahasiswa" name="Alamat-Mahasiswa" placeholder="Tulis Alamat Mahasiswa Disini">
-            </div>
-
-            <div class="pertanyaan4">
-                <br>
-                <label for="IPK-Mahasiswa">4. IPK Mahasiswa</label>
-                <br>
-                <input type="text" id="IPK-Mahasiswa" name="IPK-Mahasiswa" placeholder="Tulis IPK Mahasiswa Disini">
-            </div>
-
-            <br>
-                 <input type="reset" name="Reset" value="Reset">
-                <input type="submit" name="Simpan" value="Simpan">
-
-        </form>
-    </div>
-    </input-set>
-        </form>
 </body>
 </html>

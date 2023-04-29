@@ -27,7 +27,7 @@
                         <a href="result.php">Display</a>
                     </li>
                 </ul>
-                    <img class="logo-btn" src="images/Logo.png" alt="Logo Button" />
+                <img class="logo-btn" src="images/Logo.png" alt="Logo Button" />
             </nav>
         </div>
     </div>
@@ -45,14 +45,13 @@
                         tanpa mengalami kesulitan. Selain itu, website ini juga dilengkapi dengan fitur sederhana
                         seperti filter output yang ada di halaman setting.
                     </p>
-                    <a href="input.php">Mulai simpan data!</a>
+                    <a class="btn-primary btn-arrow" href="input.php">Mulai simpan data!</a>
                 </div>
 
                 <div class="cover-utama">
                     <img src="images/utama.png" alt="" />
                     <div class="photo-bg"></div>
                 </div>
-
             </header>
 
             <div class="team-name">
@@ -68,32 +67,29 @@
                     <div class="member-team">
                         <div class="ansa-photos">
                             <img src="images/Ansa.png" alt="">
+                            <div class="info">
+                                <h1>Hilmy Irfansa</h1>
+                                <p>
+                                    160421080
+                                </p>
+                            </div>
                         </div>
 
                         <div class="aftar-photos">
                             <img src="images/Aftar.png" alt="">
+                            <div class="info">
+                                <h1> Aftar Fadilah</h1>
+                                <p>160421095</p>
+                            </div>
                         </div>
                         <div class="garret-photos">
                             <img src="images/Garret.png" alt="">
+                            <div class="info">
+                                <h1>Garret Junior</h1>
+                                <p>160421097</p>
+                            </div>
                         </div>
 
-                    </div>
-
-                    <div class="info-teams">
-                        <div class="info-ansa">
-                            <h1>Hilmy Irfansa</h1>
-                            <p>
-                                160421080
-                            </p>
-                        </div>
-                        <div class="info-aftar">
-                            <h1> Aftar Fadillah</h1>
-                            <p>160421095</p>
-                        </div>
-                        <div class="info-garret">
-                            <h1>Garret Junior</h1>
-                            <p>160421097</p>
-                        </div>
                     </div>
             </div>
         </div>
