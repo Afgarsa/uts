@@ -34,6 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php
+// Redirect user if cookie
+if(!isset($_COOKIE['has_input_setting'])) {
+    header('location:setting.php#popupNoset');
+}
+
 // Ambil cookies form input
 $address_required = isset($_COOKIE['address_required']) ? $_COOKIE['address_required'] : 'off';
 $default_gpk = isset($_COOKIE['default_gpk']) ? $_COOKIE['default_gpk'] : '';
@@ -134,7 +139,7 @@ $default_gpk = isset($_COOKIE['default_gpk']) ? $_COOKIE['default_gpk'] : '';
 
                     <br>
                     <button type="reset">Reset</button>
-                    <button type="submit">Simpan</button>
+                    <button type="submit" value="simpan">Simpan</button>
 
                 </form>
             </div>

@@ -68,6 +68,17 @@ $wrap_format = isset($_COOKIE['wrap_format']) ? $_COOKIE['wrap_format'] : 'norma
             </div>
         </div>
     </div>
+    <div id="popupNoset" class="overlay">
+        <div class="popup">
+            <h2>Kamu belum setting!</h2>
+            <div class="content">
+                Harap setting terlebih dahulu sebelum memasukkan data mahasiswa!
+            </div>
+            <div class="footer">
+                <a href="#">Tutup</a>
+            </div>
+        </div>
+    </div>
     <div class="nav-container">
         <div class="wrapper">
             <nav>
