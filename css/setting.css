@@ -89,7 +89,7 @@ nav .logo-btn{
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
-    height: 100hv;
+    height: 100vh;
     display: flex;
     align-items: center;
 }
@@ -367,6 +367,7 @@ button[type=submit], button[type=reset] {
     max-height: 30%;
     overflow: auto;
     text-align:center;
+    margin-bottom: 0;
 }
 .popup .footer{
     background-color:#B07B54;
